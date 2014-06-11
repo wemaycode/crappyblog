@@ -1,7 +1,6 @@
 .row {
 	max-width: 40em;
 }
-
 /***** TOP NAV *****/
 .top-nav, .top-nav a {
 	margin-top: 10px;
@@ -16,18 +15,24 @@
   font-weight: normal;
 }
 
-/***** POSTS *****/
+/***** POST PAGE *****/
 h1 {
   font-size: 1rem;
   line-height: 1.2;
 }
+.home h2 {
+	margin-bottom: 0px;
+}
 a {
-  color: #333333;
+  color: #8f8f8f;
   font-weight: bold;
 }
 a:hover, a:focus {
   color: #6f6f6f;  
   text-decoration: underline;
+}
+.date {
+	color: #8f8f8f;
 }
 
 /******* ARCHIVES ******/
