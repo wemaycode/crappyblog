@@ -1,0 +1,47 @@
+.row {
+	max-width: 40em;
+}
+
+/***** TOP NAV *****/
+.top-nav, .top-nav a {
+	margin-top: 10px;
+	color: #8f8f8f;
+}
+.top-nav a:hover, .top-nav a:focus {
+	color: #6f6f6f;
+}
+.top-nav dt {
+  float: left;
+  margin-right: 1.3rem;
+  font-weight: normal;
+}
+
+/***** POSTS *****/
+h1 {
+  font-size: 1rem;
+  line-height: 1.2;
+}
+a {
+  color: #333333;
+  font-weight: bold;
+}
+a:hover, a:focus {
+  color: #6f6f6f;  
+  text-decoration: underline;
+}
+
+/******* ARCHIVES ******/
+.archives .content a {
+	font-weight: normal;
+}
+.archives .content a:hover {
+	font-weight: normal;
+	text-decoration: underline;
+}
+.archives .content p {
+	line-height: 0.8rem;
+}
+.archives .title {
+	font-weight: bold;
+	margin-left: 10px;
+}
