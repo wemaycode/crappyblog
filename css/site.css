@@ -57,3 +57,9 @@ a:hover, a:focus {
 	margin: 10px 2px;
 	background-color: #6f6f6f;
 }
+.dashboard .row.login {
+	display: block;
+}
+.dashboard .row.admin {
+	display: none;
+}

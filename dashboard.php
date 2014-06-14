@@ -10,6 +10,8 @@
 
 	<div class="row"><div class="small-12 large-12 columns">
 		<h2>dashboard</h2>
+	</div></div>
+	<div class="row login"><div class="small-12 large-12 columns">
 		<div class="content">
 			<form action="" method="post" data-abide>
 				<div>
@@ -18,15 +20,37 @@
 				<input id="password" name="password" type="password" placeholder="password" required><br/>
 				<input type="submit" name="submit" value="Submit" class="small radius button">
 			</form>
-			<?php 		
-				if(isset($_POST['submit'])){
-					echo "form submitted";
-				}
-			?> 
 		</div>
 	</div></div>
+	<div class="row admin"><div class="small-12 large-12 columns">
+		<div class="content">
+			<h4>Posts</h4>
+			[ existing posts ]<br/><br/>
+			create new post
+		</div>
+	</div></div>
+			<?php 
+				// Handles Log In
+				$conf = parse_ini_file('conf.ini');		
+				$a_username = $conf['a_username'];
+				$a_password = $conf['a_password'];				
+				if(isset($_POST['submit'])){
+					if($_POST['username'] == $a_username && $_POST['password'] == $a_password){
+						echo "success!";
+						setcookie("logged","true");
+					}
+					else { echo "Incorrect login."; }
+				}
+			?> 
 
 	<?php require_once('footer.php'); ?>
-	
+	<script type="text/javascript">
+		$(document).ready(function(){
+			if($.cookie('logged') == "true"){
+				$('.row.login').hide();
+				$('.row.admin').show();
+			}
+		});
+	</script>
 </body>
 </html>
