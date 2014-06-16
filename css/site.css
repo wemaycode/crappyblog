@@ -1,5 +1,10 @@
+/******* GLOBAL ******/
 .row {
 	max-width: 40em;
+}
+header {
+	font-size: 20px;
+	margin: 20px 0 10px 0;
 }
 /***** TOP NAV *****/
 .top-nav, .top-nav a {
@@ -63,4 +68,39 @@ a:hover, a:focus {
 }
 .dashboard .row.admin {
 	display: none;
+}
+section.logout {
+	margin-bottom: 20px;
+	margin-top: -12px;
+}
+/****** NEW POST ******/
+textarea#content, .editpost section.postlist {
+	width: 100%!important;
+	max-width: 500px;
+	min-height: 250px;
+	font-family: Arial, sans-serif;
+}
+.dashboard .posts input[type=text]{
+	width: 100%;
+	max-width: 500px;
+}
+/****** EDIT POST ******/
+.dashboard .panel {
+	display: none;
+}
+.dashboard .posts header {
+	cursor: pointer;
+}
+.dashboard .editpost p {
+	margin: 0px;
+}
+.editpost section.postlist {
+	height: 120px;
+	overflow-y: scroll;
+	background: #fff;
+	border: 1px solid #cecece;
+	min-height: 120px;
+}
+.editpost section.editform {
+	display: block;
 }

@@ -13,6 +13,5 @@
 	$hostname = $conf['hostname'];
 	$username = $conf['username'];
 	$password = $conf['password'];		
-	mysql_connect($hostname,$username,$password) or die(mysql_error()); 
-	mysql_select_db('crappyblog') or die(mysql_error());
+	
 ?>

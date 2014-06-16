@@ -6,6 +6,8 @@
 	<?php require_once('header.php'); ?>
 	<?php
 		// default query loads most recent
+		$conn = mysql_connect($hostname,$username,$password) or die(mysql_error()); 
+		mysql_select_db('crappyblog') or die(mysql_error());
 		$query = mysql_query('SELECT * FROM posts ORDER BY date DESC LIMIT 1') or die(mysql_error());
 		$title = "crappyblog";
 		// check for querystring to load specific post
@@ -15,26 +17,27 @@
 			$query = mysql_query("SELECT * FROM posts WHERE id = " . $qs['id']) or die(mysql_error());
 		}	
 		while($post = mysql_fetch_assoc($query))
-			{	
-				if($_SERVER['QUERY_STRING'] != "")
-				{
-					$title = $post['title'] . " | " . $title;
-				}
-				echo "<title>" . $title ."</title>";
+		{	
+			if($_SERVER['QUERY_STRING'] != "")
+			{
+				$title = $post['title'] . " | " . $title;
+			}
+			echo "<title>" . $title ."</title>";
 	?>
 </head>
 <body class="post">
 	<?php require_once('topnav.php'); ?>
 
 	<?php		
-				$postdate = new DateTime($post['date']);
+			$postdate = new DateTime($post['date']);
 
-				echo '<div class="row"><div class="small-12 large-12 columns">';
-					echo '<h2>' . $post['title'] . '</h2>';				
-					echo '<p class="date">' . $postdate->format('y.m.d @ H:m') . '</p>';
-					echo $post['content'];
-				echo '</div></div>';				
-			} 
+			echo '<div class="row"><div class="small-12 large-12 columns">';
+				echo '<h2>' . $post['title'] . '</h2>';				
+				echo '<p class="date">' . $postdate->format('y.m.d @ H:m') . '</p>';
+				echo $post['content'];
+			echo '</div></div>';				
+		}
+		mysql_close($conn);
 	?> 	
 
 	<!--
