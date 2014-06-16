@@ -12,36 +12,40 @@
 		<h2>dashboard</h2>
 	</div></div>
 	<div class="row login"><div class="small-12 large-12 columns">
-		<div class="content">
+		<section class="login">
 			<form action="" method="post" data-abide>
 				<div>
 	          		<input type="text" id="username" placeholder="username" name="username" required>
 				</div>
 				<input id="password" name="password" type="password" placeholder="password" required><br/>
 				<input type="submit" name="submit" value="Submit" class="small radius button">
-			</form>
-		</div>
+			</form> 
+		</section>
 	</div></div>
 	<div class="row admin"><div class="small-12 large-12 columns">
-		<div class="content">
+		<section class="posts">
 			<h4>Posts</h4>
-			[ existing posts ]<br/><br/>
-			create new post
-		</div>
+			<!-- Create New Post -->
+			<article>
+				<div id="btnCreate" class="small radius button">Create new post</div><br/>
+			</article>
+			<!-- Edit Existing Post -->
+			<div id="btnEdit" class="small radius button">Edit existing posts</div>
+		</section>
 	</div></div>
-			<?php 
-				// Handles Log In
-				$conf = parse_ini_file('conf.ini');		
-				$a_username = $conf['a_username'];
-				$a_password = $conf['a_password'];				
-				if(isset($_POST['submit'])){
-					if($_POST['username'] == $a_username && $_POST['password'] == $a_password){
-						echo "success!";
-						setcookie("logged","true");
-					}
-					else { echo "Incorrect login."; }
-				}
-			?> 
+	<?php 
+		// Handles Log In
+		$conf = parse_ini_file('conf.ini');		
+		$a_username = $conf['a_username'];
+		$a_password = $conf['a_password'];				
+		if(isset($_POST['submit'])){
+			if($_POST['username'] == $a_username && $_POST['password'] == $a_password){
+				echo "success!";
+				setcookie("logged","true");
+			}
+			else { echo "Incorrect login."; }
+		}
+	?> 
 
 	<?php require_once('footer.php'); ?>
 	<script type="text/javascript">
