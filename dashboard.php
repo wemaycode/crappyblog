@@ -105,9 +105,16 @@
 							}	
 							while($post = mysql_fetch_assoc($query))
 							{
-								echo '<input type="text" id="title" placeholder="title" name="title" value="' . $post['title'] . '" required /><br/>';				
-								echo '<textarea id="content" placeholder="content" name="content" required>' . $post['content'] . '</textarea>';
-								echo '<input type="submit" name="submiteditpost" value="Submit" class="small radius button">';
+								echo '<input type="text" id="title" placeholder="title" name="edit_title" value="' . $post['title'] . '" required /><br/>';				
+								echo '<textarea id="content" placeholder="edit_content" name="edit_content" required>' . $post['content'] . '</textarea>';
+								echo '<input type="submit" name="updatepost" value="Submit" class="small radius button">';
+							}
+							// Update Existing Post
+							if(isset($_POST['updatepost'])){
+								$query = "UPDATE posts SET title='". $_POST['edit_title']. "', content='" . $_POST['edit_content'] . "' WHERE id = ". $qs['id'];
+								$result = mysql_query($query);
+								if ($result){ echo $query; }
+								else { die(mysql_error()); }
 							}
 							mysql_close($conn);
 						?>
@@ -129,9 +136,10 @@
 			}
 			// check for querystring for editing post
 			if(getParameterByName('id') != ""){
-				//alert("has qs");
-				$('.editpost').show();
+				console.log("id = " + getParameterByName('id'));
 				$('.postlist').hide();
+				$('.editpost').show();
+				$('.editpost .editform').show();
 			}
 
 			// logout clears cookies
@@ -150,16 +158,16 @@
 
 			// show edit form on post click
 			$('.postlist .title').click(function(){
-				//$('.editform').toggle();
-				//$('.postlist').toggle();
+				$('.postlist').toggle();
+				$('.editform').toggle();
 				//alert("load post id = " + $(this).attr("data"));
 			});
 
 			$('.back').click(function(){
-				confirm("are you sure?");
-				return true;
-				//$('.editform').toggle();
-				//$('.postlist').toggle();
+				//confirm("are you sure?");
+				//return true;
+				$('.postlist').toggle();
+				$('.editform').toggle();
 			});
 
 			// Get Querystring Value
