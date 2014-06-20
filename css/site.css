@@ -102,5 +102,5 @@ textarea#content, .editpost section.postlist {
 	min-height: 120px;
 }
 .editpost section.editform {
-	display: block;
+	display: none;
 }
