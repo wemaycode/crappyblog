@@ -12,6 +12,5 @@
 	$conf = parse_ini_file('conf.ini');		
 	$hostname = $conf['hostname'];
 	$username = $conf['username'];
-	$password = $conf['password'];		
-	
+	$password = $conf['password'];
 ?>
