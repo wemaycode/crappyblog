@@ -22,7 +22,7 @@
 					$postdate = new DateTime($post['date']);
 					$datetype = gettype($postdate);
 					echo '';
-						echo '<p>' . $postdate->format('y.m.d') . ' <span class="title"><a href="/?id=' . $post['id'] . '">' . $post['title'] . '</a></span></p>';
+						echo '<p>' . $postdate->format('y.m.d') . ' <span class="title"><a href="/blog/?id=' . $post['id'] . '">' . $post['title'] . '</a></span></p>';
 					echo '';				
 				} 
 				mysql_close($conn);

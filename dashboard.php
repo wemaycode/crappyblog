@@ -31,7 +31,8 @@
 			if(isset($_POST['submit'])){
 				if($_POST['username'] == $a_username && $_POST['password'] == $a_password){
 					//echo "success!";
-					setcookie("logged","true");
+					//setcookie("logged","true");
+					echo '<script>$.cookie("logged","true");</script>';
 				}
 				else { echo "Incorrect login."; }
 			}
@@ -67,8 +68,7 @@
 					else { die(mysql_error()); }
 				}
 				mysql_close($conn);				
-			?>
-			
+			?>			
 			<!-- Edit Existing Post -->
 			<section class="edit">
 				<header>edit existing post</header>
